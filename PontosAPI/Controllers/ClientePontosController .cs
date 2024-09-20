@@ -15,7 +15,7 @@ namespace PontosAPI.Controllers
             _service = service;
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{cpf}")]
         public ActionResult<ClientePontos> GetCliente(string cpf)
         {
             var cliente = _service.GetCliente(cpf);

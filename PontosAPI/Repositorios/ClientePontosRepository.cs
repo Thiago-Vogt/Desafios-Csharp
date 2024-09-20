@@ -24,7 +24,8 @@ namespace PontosAPI.Repositorios
                         {
                             return new ClientePontos
                             {
-                                Cpf = reader.GetString(reader.GetOrdinal("ClienteId")),
+                                ClienteId = reader.GetInt32(reader.GetOrdinal("ClienteId")),
+                                Cpf = reader.GetString(reader.GetOrdinal("Cpf")),
                                 Pontos = reader.GetInt32(reader.GetOrdinal("PontosFidelidade"))
                             };
                         }
