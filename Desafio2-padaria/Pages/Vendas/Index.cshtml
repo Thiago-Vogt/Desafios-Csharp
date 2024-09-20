@@ -1,0 +1,54 @@
+﻿@page
+@model Desafio2_padaria.Pages.Vendas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="RealizarVenda">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].FormaPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Venda[0].ValorTotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Venda) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.ClienteId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorTotal)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VendaId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VendaId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VendaId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

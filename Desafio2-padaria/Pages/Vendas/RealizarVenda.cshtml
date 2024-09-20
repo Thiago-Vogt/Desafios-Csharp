@@ -1,0 +1,47 @@
+﻿@page
+@model Desafio2_padaria.Pages.Vendas.RealizarVendaModel
+@{
+    ViewData["Title"] = "Realizar Venda";
+}
+
+<h2>Realizar Venda</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ClienteId">Cliente (opicional):</label>
+        <select asp-for="Venda.ClienteId" class="form-control" asp-items="Model.Clientes">
+            <option value="">Selecione um cliente</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Produtos</label>
+        <select asp-for="ProdutosSelecionados" class="form-control" multiple>
+            @foreach (var produto in Model.Produtos)
+            {
+                <option value="@produto.Value">@produto.Text</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="FormaPagamento">Forma de Pagamento</label>
+        <select asp-for="FormaPagamentoSelecionada" class="form-control" asp-items="Model.FormasPagamento">
+            <option value="">Selecione a forma de pagamento</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="ValorPago">Valor Pago</label>
+        <input type="text" class="form-control" name="valorPago" id="valorPago" />
+    </div>
+
+    <div class="form-group">
+        <label for="NumeroCartao">Número do Cartão</label>
+        <input type="text" class="form-control" name="numeroCartao" id="numeroCartao" maxlength="16" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Finalizar Venda</button>
+</form>
+
+
